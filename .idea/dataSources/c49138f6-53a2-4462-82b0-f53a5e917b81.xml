@@ -6,9 +6,9 @@
     </root>
     <schema id="2" parent="1" name="C##SAVINGHELPER">
       <ObjectId>106</ObjectId>
-      <IntrospectionTimestamp>2018-12-27.16:58:51</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-12-30.01:50:10</IntrospectionTimestamp>
       <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
-      <ModifiedTimestamp>2018-12-27.16:58:31</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-12-30.01:50:03</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -149,7 +149,7 @@
     <table id="44" parent="2" name="USER1">
       <ObjectId>76321</ObjectId>
       <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
-      <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-12-30.01:50:03</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="45" parent="2" name="USER1_PERSONAL_DATA">
@@ -265,7 +265,11 @@
       <DataType>NUMBER(7,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="64" parent="44" name="PKUSER">
+    <column id="64" parent="44" name="ADMIN">
+      <Position>6</Position>
+      <DataType>VARCHAR2(3 byte)|0s</DataType>
+    </column>
+    <index id="65" parent="44" name="PKUSER">
       <ObjectId>76323</ObjectId>
       <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
       <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
@@ -273,29 +277,34 @@
       <ColNames>ID_USER</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="65" parent="44" name="PKUSER">
+    <key id="66" parent="44" name="PKUSER">
       <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
       <ColNames>ID_USER</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>PKUSER</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="66" parent="45" name="ID_USER">
+    <check id="67" parent="44" name="NOORYES">
+      <ModifiedTimestamp>2018-12-30.01:50:03</ModifiedTimestamp>
+      <ColNames>ADMIN</ColNames>
+      <Predicate>admin = &apos;YES&apos; or admin = &apos;NO&apos;</Predicate>
+    </check>
+    <column id="68" parent="45" name="ID_USER">
       <Position>1</Position>
       <DataType>NUMBER(4 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="45" name="NAME">
+    <column id="69" parent="45" name="NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(15 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="45" name="SURNAME">
+    <column id="70" parent="45" name="SURNAME">
       <Position>3</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <foreign-key id="69" parent="45" name="FKUSERP">
+    <foreign-key id="71" parent="45" name="FKUSERP">
       <ModifiedTimestamp>2018-12-07.16:20:09</ModifiedTimestamp>
       <ColNames>ID_USER</ColNames>
       <RefSchemaName>C##SAVINGHELPER</RefSchemaName>

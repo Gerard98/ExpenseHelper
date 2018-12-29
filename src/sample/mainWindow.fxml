@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
+   <children>
+      <Label fx:id="monthLabel" alignment="TOP_LEFT" layoutX="87.0" layoutY="226.0" prefHeight="26.0" prefWidth="150.0" text="Date">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="spendLabel" layoutX="202.0" layoutY="252.0" prefHeight="27.0" prefWidth="87.0" text="Kwota">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="keepLabel" layoutX="93.0" layoutY="274.0" prefHeight="34.0" prefWidth="87.0" text="Kwota">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableView" layoutX="260.0" layoutY="127.0" prefHeight="324.0" prefWidth="400.0">
+        <columns>
+          <TableColumn fx:id="amountColumn" prefWidth="133.0" text="Amount" />
+          <TableColumn fx:id="dateColumn" prefWidth="133.0" text="Date" />
+            <TableColumn fx:id="categoryColumn" prefWidth="133.0" text="Category" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="150.0" fitWidth="170.0" layoutX="30.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/User.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="userLogin" alignment="CENTER" layoutX="20.0" layoutY="179.0" prefHeight="27.0" prefWidth="170.0" text="Label">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="226.0" text="Today is:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="252.0" text="In this mouth you spent:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="278.0" text="You keep:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="40.0" text="Your expenditures:">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="333.0" text="In whole time you safe:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="monthChoice" layoutX="260.0" layoutY="102.0" onAction="#choiceMonth" prefWidth="150.0" />
+      <Button fx:id="button" layoutX="548.0" layoutY="98.0" mnemonicParsing="false" onAction="#addExpense" prefHeight="20.0" prefWidth="20.0" stylesheets="@../application.css" />
+      <Button layoutX="586.0" layoutY="98.0" mnemonicParsing="false" onAction="#deleteExpense" prefHeight="20.0" prefWidth="20.0" styleClass="button2" stylesheets="@../application.css" />
+      <Button layoutX="510.0" layoutY="98.0" mnemonicParsing="false" onAction="#refresh" styleClass="button-refresh" stylesheets="@../application.css" />
+      <Button layoutX="624.0" layoutY="98.0" mnemonicParsing="false" onAction="#info" styleClass="button-info" stylesheets="@../application.css" />
+      <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" onAction="#balance" text="Balance Sheet " />
+
+   </children>
+</Pane>

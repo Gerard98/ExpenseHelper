@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerRegister">
+   <children>
+      <TextField fx:id="textFieldLogin" layoutX="75.0" layoutY="70.0" stylesheets="@../application.css" />
+      <TextField fx:id="textFieldEmail" layoutX="75.0" layoutY="205.0" stylesheets="@../application.css" />
+      <TextField fx:id="textFieldBudget" layoutX="75.0" layoutY="250.0" stylesheets="@../application.css" />
+      <Button layoutX="111.0" layoutY="338.0" mnemonicParsing="false" onAction="#actionRegister" prefHeight="25.0" prefWidth="82.0" text="Register" />
+      <Label layoutX="76.0" layoutY="53.0" text="Login:" />
+      <Label layoutX="75.0" layoutY="98.0" text="Password:" />
+      <Label layoutX="75.0" layoutY="143.0" text="Password Again:" />
+      <Label layoutX="75.0" layoutY="188.0" text="E-Mail:" />
+      <Label layoutX="75.0" layoutY="233.0" text="Budget:" />
+      <Label layoutX="100.0" layoutY="10.0" text="Register">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" layoutX="135.0" layoutY="312.0" text="Error" visible="false" />
+      <PasswordField fx:id="passwordField1" layoutX="76.0" layoutY="115.0" stylesheets="@../application.css" />
+      <PasswordField fx:id="passwordField2" layoutX="76.0" layoutY="160.0" stylesheets="@../application.css" />
+   </children>
+</Pane>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Projekt">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="4.11">
+    <root id="1">
+      <ServerVersion>18.0</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="C##SAVINGHELPER">
+      <ObjectId>106</ObjectId>
+      <IntrospectionTimestamp>2018-12-27.16:58:51</IntrospectionTimestamp>
+      <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-27.16:58:31</ModifiedTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="PUBLIC">
+      <ObjectId>1</ObjectId>
+    </schema>
+    <schema id="4" parent="1" name="SYS">
+      <ObjectId>0</ObjectId>
+    </schema>
+    <schema id="5" parent="1" name="AUDSYS">
+      <ObjectId>8</ObjectId>
+    </schema>
+    <schema id="6" parent="1" name="SYSTEM">
+      <ObjectId>9</ObjectId>
+    </schema>
+    <schema id="7" parent="1" name="OUTLN">
+      <ObjectId>13</ObjectId>
+    </schema>
+    <schema id="8" parent="1" name="GSMADMIN_INTERNAL">
+      <ObjectId>21</ObjectId>
+    </schema>
+    <schema id="9" parent="1" name="GSMUSER">
+      <ObjectId>22</ObjectId>
+    </schema>
+    <schema id="10" parent="1" name="DIP">
+      <ObjectId>23</ObjectId>
+    </schema>
+    <schema id="11" parent="1" name="REMOTE_SCHEDULER_AGENT">
+      <ObjectId>34</ObjectId>
+    </schema>
+    <schema id="12" parent="1" name="DBSFWUSER">
+      <ObjectId>35</ObjectId>
+    </schema>
+    <schema id="13" parent="1" name="ORACLE_OCM">
+      <ObjectId>39</ObjectId>
+    </schema>
+    <schema id="14" parent="1" name="SYS$UMF">
+      <ObjectId>46</ObjectId>
+    </schema>
+    <schema id="15" parent="1" name="DBSNMP">
+      <ObjectId>54</ObjectId>
+    </schema>
+    <schema id="16" parent="1" name="APPQOSSYS">
+      <ObjectId>55</ObjectId>
+    </schema>
+    <schema id="17" parent="1" name="GSMCATUSER">
+      <ObjectId>59</ObjectId>
+    </schema>
+    <schema id="18" parent="1" name="GGSYS">
+      <ObjectId>60</ObjectId>
+    </schema>
+    <schema id="19" parent="1" name="XDB">
+      <ObjectId>62</ObjectId>
+    </schema>
+    <schema id="20" parent="1" name="ANONYMOUS">
+      <ObjectId>63</ObjectId>
+    </schema>
+    <schema id="21" parent="1" name="WMSYS">
+      <ObjectId>72</ObjectId>
+    </schema>
+    <schema id="22" parent="1" name="OJVMSYS">
+      <ObjectId>81</ObjectId>
+    </schema>
+    <schema id="23" parent="1" name="CTXSYS">
+      <ObjectId>83</ObjectId>
+    </schema>
+    <schema id="24" parent="1" name="ORDSYS">
+      <ObjectId>85</ObjectId>
+    </schema>
+    <schema id="25" parent="1" name="ORDDATA">
+      <ObjectId>86</ObjectId>
+    </schema>
+    <schema id="26" parent="1" name="ORDPLUGINS">
+      <ObjectId>87</ObjectId>
+    </schema>
+    <schema id="27" parent="1" name="SI_INFORMTN_SCHEMA">
+      <ObjectId>88</ObjectId>
+    </schema>
+    <schema id="28" parent="1" name="MDSYS">
+      <ObjectId>89</ObjectId>
+    </schema>
+    <schema id="29" parent="1" name="OLAPSYS">
+      <ObjectId>92</ObjectId>
+    </schema>
+    <schema id="30" parent="1" name="MDDATA">
+      <ObjectId>95</ObjectId>
+    </schema>
+    <schema id="31" parent="1" name="LBACSYS">
+      <ObjectId>97</ObjectId>
+    </schema>
+    <schema id="32" parent="1" name="DVF">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="33" parent="1" name="C##halo">
+      <ObjectId>103</ObjectId>
+    </schema>
+    <schema id="34" parent="1" name="C##ANONYMOUS2">
+      <ObjectId>104</ObjectId>
+    </schema>
+    <schema id="35" parent="1" name="DVSYS">
+      <ObjectId>1279990</ObjectId>
+    </schema>
+    <schema id="36" parent="1" name="SYSBACKUP">
+      <ObjectId>2147483617</ObjectId>
+    </schema>
+    <schema id="37" parent="1" name="SYSDG">
+      <ObjectId>2147483618</ObjectId>
+    </schema>
+    <schema id="38" parent="1" name="SYSKM">
+      <ObjectId>2147483619</ObjectId>
+    </schema>
+    <schema id="39" parent="1" name="SYSRAC">
+      <ObjectId>2147483620</ObjectId>
+    </schema>
+    <schema id="40" parent="1" name="XS$NULL">
+      <ObjectId>2147483638</ObjectId>
+    </schema>
+    <sequence id="41" parent="2" name="ISEQ$$_76321">
+      <ObjectId>76322</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="42" parent="2" name="CATEGORY">
+      <ObjectId>80120</ObjectId>
+      <CreatedTimestamp>2018-12-27.16:54:36</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-27.16:54:36</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="43" parent="2" name="EXPENSE">
+      <ObjectId>77393</ObjectId>
+      <CreatedTimestamp>2018-12-13.17:23:06</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-27.16:58:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="44" parent="2" name="USER1">
+      <ObjectId>76321</ObjectId>
+      <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="45" parent="2" name="USER1_PERSONAL_DATA">
+      <ObjectId>76325</ObjectId>
+      <CreatedTimestamp>2018-12-07.16:20:09</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-07.16:20:09</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="46" parent="42" name="CATEGORY">
+      <Position>1</Position>
+      <DataType>VARCHAR2(30 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="42" name="PKCAT">
+      <ObjectId>80121</ObjectId>
+      <CreatedTimestamp>2018-12-27.16:54:36</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-27.16:54:36</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>CATEGORY</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="48" parent="42" name="PKCAT">
+      <ModifiedTimestamp>2018-12-27.16:54:36</ModifiedTimestamp>
+      <ColNames>CATEGORY</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>PKCAT</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="43" name="ID_EXPENSE">
+      <Position>1</Position>
+      <DataType>NUMBER(3 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="43" name="AMOUNT">
+      <Position>2</Position>
+      <DataType>NUMBER(7,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="43" name="EXPENSEDATE">
+      <Position>3</Position>
+      <DataType>DATE|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="43" name="CATEGORY">
+      <Position>4</Position>
+      <DataType>VARCHAR2(30 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="43" name="INFO">
+      <Position>5</Position>
+      <DataType>VARCHAR2(100 byte)|0s</DataType>
+    </column>
+    <column id="54" parent="43" name="ID_USER">
+      <Position>6</Position>
+      <DataType>NUMBER(3 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="55" parent="43" name="PKEXPENSE">
+      <ObjectId>77394</ObjectId>
+      <CreatedTimestamp>2018-12-13.17:23:06</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-13.17:23:06</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_EXPENSE</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="56" parent="43" name="PKEXPENSE">
+      <ModifiedTimestamp>2018-12-13.17:23:06</ModifiedTimestamp>
+      <ColNames>ID_EXPENSE</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>PKEXPENSE</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="57" parent="43" name="FKCAT1">
+      <ModifiedTimestamp>2018-12-27.16:58:31</ModifiedTimestamp>
+      <ColNames>CATEGORY</ColNames>
+      <RefSchemaName>C##SAVINGHELPER</RefSchemaName>
+      <RefTableName>CATEGORY</RefTableName>
+      <RefKeyName>PKCAT</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="58" parent="43" name="FGEXPENSE">
+      <ModifiedTimestamp>2018-12-13.17:23:06</ModifiedTimestamp>
+      <ColNames>ID_USER</ColNames>
+      <RefSchemaName>C##SAVINGHELPER</RefSchemaName>
+      <RefTableName>USER1</RefTableName>
+      <RefKeyName>PKUSER</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="59" parent="44" name="ID_USER">
+      <Position>1</Position>
+      <DataType>NUMBER(*)|0s</DataType>
+      <NotNull>1</NotNull>
+      <AutoInc>1</AutoInc>
+      <DefaultOnNull>1</DefaultOnNull>
+    </column>
+    <column id="60" parent="44" name="LOGIN">
+      <Position>2</Position>
+      <DataType>VARCHAR2(15 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="44" name="PASSWORD">
+      <Position>3</Position>
+      <DataType>VARCHAR2(20 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="44" name="E_MAIL">
+      <Position>4</Position>
+      <DataType>VARCHAR2(30 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="44" name="BUDGET">
+      <Position>5</Position>
+      <DataType>NUMBER(7,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="64" parent="44" name="PKUSER">
+      <ObjectId>76323</ObjectId>
+      <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
+      <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>ID_USER</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="65" parent="44" name="PKUSER">
+      <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
+      <ColNames>ID_USER</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>PKUSER</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="45" name="ID_USER">
+      <Position>1</Position>
+      <DataType>NUMBER(4 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="45" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(15 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="45" name="SURNAME">
+      <Position>3</Position>
+      <DataType>VARCHAR2(30 byte)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <foreign-key id="69" parent="45" name="FKUSERP">
+      <ModifiedTimestamp>2018-12-07.16:20:09</ModifiedTimestamp>
+      <ColNames>ID_USER</ColNames>
+      <RefSchemaName>C##SAVINGHELPER</RefSchemaName>
+      <RefTableName>USER1</RefTableName>
+      <RefKeyName>PKUSER</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,17 @@
+.button{
+    -fx-graphic: url('resources/add.png');
+}
+.button2{
+    -fx-graphic: url('resources/delete.png');
+}
+.button-refresh{
+    -fx-graphic: url('resources/refresh.png');
+}
+.button-info{
+    -fx-graphic: url('resources/info.png');
+}
+.error {
+    -fx-border-color: red ;
+    -fx-border-width: 1px ;
+
+}

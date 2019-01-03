@@ -212,7 +212,7 @@ public class MainWindowController {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("balance.fxml"));
             stage.setTitle("Balance Sheet");
-            stage.setScene(new Scene(root, 600, 600));
+            stage.setScene(new Scene(root, 800, 600));
             stage.show();
         }
         catch (IOException e){

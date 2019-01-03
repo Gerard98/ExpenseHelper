@@ -1,7 +1,11 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.text.Text;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,7 +25,9 @@ public class balanceController {
     @FXML
     private Text months,sum,biggestExp,avgExp,monthExp;
     @FXML
-    private PieChart pieChart;
+    private PieChart pieChartByCategory;
+    @FXML
+    private BarChart<?,?> barChartByMonth;
 
     private List<Category> categories = new ArrayList<>();
     private SessionFactory sessionFactory;
@@ -55,18 +61,38 @@ public class balanceController {
             avgExp.setText("Average cost of expeses is: " + avg);
             monthExp.setText("Your expenses were the biggest in " + Month.of(Integer.valueOf(month)));
             tx.commit();
+
+            ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
+
+            List<Category> categories = session.createQuery("FROM Category ").list();
+            for(Category cat : categories){
+                String amount =  session.createSQLQuery("SELECT SUM(AMOUNT) from EXPENSE where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE, 'yyyy') = " + thisYear + " and CATEGORY = '" + cat.getCategory() + "'").uniqueResult().toString();
+                data.add(new PieChart.Data(cat.getCategory(), Double.valueOf(amount)));
+            }
+            pieChartByCategory.setData(data);
+            pieChartByCategory.setLabelsVisible(true);
+            pieChartByCategory.setTitle("Expenditures by categories");
+
+            //ObservableList<BarChart.Data> dataMonth = FXCollections.observableArrayList();
+            XYChart.Series dataMonth = new XYChart.Series();
+            dataMonth.setName("Expenses cost");
+            for(int i=1 ; i<13 ; i++){
+                String amount = session.createSQLQuery("SELECT NVL(SUM(AMOUNT),0) from EXPENSE where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE, 'yyyy') = " + thisYear + " and TO_CHAR(EXPENSEDATE,'MM') = " + i).uniqueResult().toString();
+                dataMonth.getData().add(new XYChart.Data<>(Month.of(i).toString(),Double.valueOf(amount)));
+            }
+            barChartByMonth.getData().addAll(dataMonth);
+
+
         }
         catch (HibernateException ex){
             if(tx != null) tx.rollback();
             ex.printStackTrace();
         }
-        finally {
-            session.close();
 
 
 
 
-        }
+        session.close();
     }
 
 }

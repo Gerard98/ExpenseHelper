@@ -75,6 +75,7 @@
       <Button layoutX="510.0" layoutY="98.0" mnemonicParsing="false" onAction="#refresh" styleClass="button-refresh" stylesheets="@../application.css" />
       <Button layoutX="624.0" layoutY="98.0" mnemonicParsing="false" onAction="#info" styleClass="button-info" stylesheets="@../application.css" />
       <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" onAction="#balance" text="Balance Sheet " />
+      <Button layoutX="594.0" layoutY="534.0" mnemonicParsing="false" onAction="#settings" prefHeight="34.0" prefWidth="74.0" text="Settings" />
 
    </children>
 </Pane>

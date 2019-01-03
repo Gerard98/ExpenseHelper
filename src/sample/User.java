@@ -7,15 +7,17 @@ public class User {
     private String password;
     private String e_mail;
     private double budget;
+    private String admin;
 
     public User(){}
 
-    public User(int id_user, String login, String password, String e_mail, double budget) {
+    public User(int id_user, String login, String password, String e_mail, double budget, String admin) {
         this.id_user = id_user;
         this.login = login;
         this.password = password;
         this.e_mail = e_mail;
         this.budget = budget;
+        this.admin = admin;
     }
 
     @Override
@@ -62,4 +64,9 @@ public class User {
     public void setBudget(double budget) {
         this.budget = budget;
     }
+
+    public String getAdmin(){ return admin; }
+
+    public void setAdmin(String admin){ this.admin = admin; }
+
 }

@@ -152,18 +152,12 @@
       <ModifiedTimestamp>2018-12-30.01:50:03</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="45" parent="2" name="USER1_PERSONAL_DATA">
-      <ObjectId>76325</ObjectId>
-      <CreatedTimestamp>2018-12-07.16:20:09</CreatedTimestamp>
-      <ModifiedTimestamp>2018-12-07.16:20:09</ModifiedTimestamp>
-      <TemporaryPreserve>1</TemporaryPreserve>
-    </table>
-    <column id="46" parent="42" name="CATEGORY">
+    <column id="45" parent="42" name="CATEGORY">
       <Position>1</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="47" parent="42" name="PKCAT">
+    <index id="46" parent="42" name="PKCAT">
       <ObjectId>80121</ObjectId>
       <CreatedTimestamp>2018-12-27.16:54:36</CreatedTimestamp>
       <ModifiedTimestamp>2018-12-27.16:54:36</ModifiedTimestamp>
@@ -171,43 +165,43 @@
       <ColNames>CATEGORY</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="48" parent="42" name="PKCAT">
+    <key id="47" parent="42" name="PKCAT">
       <ModifiedTimestamp>2018-12-27.16:54:36</ModifiedTimestamp>
       <ColNames>CATEGORY</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>PKCAT</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="49" parent="43" name="ID_EXPENSE">
+    <column id="48" parent="43" name="ID_EXPENSE">
       <Position>1</Position>
       <DataType>NUMBER(3 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="43" name="AMOUNT">
+    <column id="49" parent="43" name="AMOUNT">
       <Position>2</Position>
       <DataType>NUMBER(7,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="51" parent="43" name="EXPENSEDATE">
+    <column id="50" parent="43" name="EXPENSEDATE">
       <Position>3</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="52" parent="43" name="CATEGORY">
+    <column id="51" parent="43" name="CATEGORY">
       <Position>4</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="53" parent="43" name="INFO">
+    <column id="52" parent="43" name="INFO">
       <Position>5</Position>
       <DataType>VARCHAR2(100 byte)|0s</DataType>
     </column>
-    <column id="54" parent="43" name="ID_USER">
+    <column id="53" parent="43" name="ID_USER">
       <Position>6</Position>
       <DataType>NUMBER(3 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="55" parent="43" name="PKEXPENSE">
+    <index id="54" parent="43" name="PKEXPENSE">
       <ObjectId>77394</ObjectId>
       <CreatedTimestamp>2018-12-13.17:23:06</CreatedTimestamp>
       <ModifiedTimestamp>2018-12-13.17:23:06</ModifiedTimestamp>
@@ -215,14 +209,14 @@
       <ColNames>ID_EXPENSE</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="56" parent="43" name="PKEXPENSE">
+    <key id="55" parent="43" name="PKEXPENSE">
       <ModifiedTimestamp>2018-12-13.17:23:06</ModifiedTimestamp>
       <ColNames>ID_EXPENSE</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>PKEXPENSE</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="57" parent="43" name="FKCAT1">
+    <foreign-key id="56" parent="43" name="FKCAT1">
       <ModifiedTimestamp>2018-12-27.16:58:31</ModifiedTimestamp>
       <ColNames>CATEGORY</ColNames>
       <RefSchemaName>C##SAVINGHELPER</RefSchemaName>
@@ -230,7 +224,7 @@
       <RefKeyName>PKCAT</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="58" parent="43" name="FGEXPENSE">
+    <foreign-key id="57" parent="43" name="FGEXPENSE">
       <ModifiedTimestamp>2018-12-13.17:23:06</ModifiedTimestamp>
       <ColNames>ID_USER</ColNames>
       <RefSchemaName>C##SAVINGHELPER</RefSchemaName>
@@ -238,38 +232,38 @@
       <RefKeyName>PKUSER</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="59" parent="44" name="ID_USER">
+    <column id="58" parent="44" name="ID_USER">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
       <NotNull>1</NotNull>
       <AutoInc>1</AutoInc>
       <DefaultOnNull>1</DefaultOnNull>
     </column>
-    <column id="60" parent="44" name="LOGIN">
+    <column id="59" parent="44" name="LOGIN">
       <Position>2</Position>
       <DataType>VARCHAR2(15 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="61" parent="44" name="PASSWORD">
+    <column id="60" parent="44" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="62" parent="44" name="E_MAIL">
+    <column id="61" parent="44" name="E_MAIL">
       <Position>4</Position>
       <DataType>VARCHAR2(30 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="63" parent="44" name="BUDGET">
+    <column id="62" parent="44" name="BUDGET">
       <Position>5</Position>
       <DataType>NUMBER(7,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="64" parent="44" name="ADMIN">
+    <column id="63" parent="44" name="ADMIN">
       <Position>6</Position>
       <DataType>VARCHAR2(3 byte)|0s</DataType>
     </column>
-    <index id="65" parent="44" name="PKUSER">
+    <index id="64" parent="44" name="PKUSER">
       <ObjectId>76323</ObjectId>
       <CreatedTimestamp>2018-12-07.16:15:52</CreatedTimestamp>
       <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
@@ -277,40 +271,17 @@
       <ColNames>ID_USER</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="66" parent="44" name="PKUSER">
+    <key id="65" parent="44" name="PKUSER">
       <ModifiedTimestamp>2018-12-07.16:15:52</ModifiedTimestamp>
       <ColNames>ID_USER</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>PKUSER</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <check id="67" parent="44" name="NOORYES">
+    <check id="66" parent="44" name="NOORYES">
       <ModifiedTimestamp>2018-12-30.01:50:03</ModifiedTimestamp>
       <ColNames>ADMIN</ColNames>
       <Predicate>admin = &apos;YES&apos; or admin = &apos;NO&apos;</Predicate>
     </check>
-    <column id="68" parent="45" name="ID_USER">
-      <Position>1</Position>
-      <DataType>NUMBER(4 digit)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="69" parent="45" name="NAME">
-      <Position>2</Position>
-      <DataType>VARCHAR2(15 byte)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="70" parent="45" name="SURNAME">
-      <Position>3</Position>
-      <DataType>VARCHAR2(30 byte)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <foreign-key id="71" parent="45" name="FKUSERP">
-      <ModifiedTimestamp>2018-12-07.16:20:09</ModifiedTimestamp>
-      <ColNames>ID_USER</ColNames>
-      <RefSchemaName>C##SAVINGHELPER</RefSchemaName>
-      <RefTableName>USER1</RefTableName>
-      <RefKeyName>PKUSER</RefKeyName>
-      <OnDelete>restrict</OnDelete>
-    </foreign-key>
   </database-model>
 </dataSource>

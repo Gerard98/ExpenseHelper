@@ -65,6 +65,17 @@ public class MainWindowController {
         query.setParameter("date", month);
         expenses = query.list();
 
+        // Sprawdzanie czy wydatki są z aktualnego roku
+
+        int i=0;
+        if(!expenses.isEmpty())
+        while(i< expenses.size()){
+            if(Errors.goodYear(expenses.get(i).getExpenseDate().toString()))expenses.remove(i);
+            else i++;
+        }
+
+
+
         // Wyświetlanie wydatków w bieżącym miesiącu
 
         ObservableList<Expense> expensesObs = FXCollections.observableList(expenses);
@@ -130,7 +141,11 @@ public class MainWindowController {
         ObservableList months = monthChoice.getItems();
         for(int i=0;i<12;i++){
             if(months.get(i).equals(month)){
-                showExpanses(String.valueOf(++i));
+                i++;
+                if(i < 10){
+                    showExpanses("0" + String.valueOf(i));
+                }
+                else showExpanses(String.valueOf(i));
                 break;
             }
         }
@@ -193,7 +208,31 @@ public class MainWindowController {
 
     @FXML
     public void balance(){
+        try{
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("balance.fxml"));
+            stage.setTitle("Balance Sheet");
+            stage.setScene(new Scene(root, 600, 600));
+            stage.show();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
+    }
+
+    @FXML
+    public void settings(){
+        try{
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+            stage.setTitle("Settings");
+            stage.setScene(new Scene(root, 200, 270));
+            stage.show();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
 

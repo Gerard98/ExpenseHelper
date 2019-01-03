@@ -69,14 +69,26 @@ public class ControllerAdd {
             amount.getStyleClass().add("error");
             error = true;
         }
-        if(category.getValue() == "") {
+
+        try{
+            category.getValue().toString();
+        }
+        catch (NullPointerException ex){
             category.getStyleClass().add("error");
             error = true;
         }
-        if(Errors.goodYear(date.getValue().toString())) {
+
+        if(date.getValue() != null) {
+            if (Errors.goodYear(date.getValue().toString())) {
+                date.getStyleClass().add("error");
+                error = true;
+            }
+        }
+        else{
             date.getStyleClass().add("error");
             error = true;
         }
+
 
         if(error == false){
 
@@ -100,13 +112,7 @@ public class ControllerAdd {
                 ((Stage) amount.getScene().getWindow()).close();
 
             }
-
-
-
         }
-
-
-
 
     }
 

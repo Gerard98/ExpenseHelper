@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="270.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
+   <children>
+      <Button layoutX="15.0" layoutY="230.0" mnemonicParsing="false" onAction="#deleteAccount" prefWidth="170.0" text="Delete Account" />
+      <Button fx:id="changeLogin" layoutX="15.0" layoutY="10.0" mnemonicParsing="false" onAction="#changeLogin" prefWidth="170.0" text="Change Login" />
+      <Button layoutX="15.0" layoutY="40.0" mnemonicParsing="false" onAction="#changeBudget" prefWidth="170.0" text="Change Budget" />
+      <Button layoutX="15.0" layoutY="70.0" mnemonicParsing="false" onAction="#changePassword" prefWidth="170.0" text="Change Password" />
+      <Button layoutX="15.0" layoutY="200.0" mnemonicParsing="false" onAction="#deleteExpenses" prefWidth="170.0" text="Delete All Expenses" />
+      <Button layoutX="15.0" layoutY="100.0" mnemonicParsing="false" onAction="#changeEmail" prefWidth="170.0" text="Change Email" />
+   </children>
+</Pane>

@@ -63,7 +63,7 @@ public class Controller {
 
         Session session = sessionFactory.openSession();
         Transaction tx = null;
-        // Chce zamienić aby dawało Usera całego ( pokombinować z zamknięciem SessionFactory
+
         user =(User) session.createQuery("from User where login = '" + login.getText() + "' and password = '" + password.getText() + "'").uniqueResult();
 
         if(user != null) {

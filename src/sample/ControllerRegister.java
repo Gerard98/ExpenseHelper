@@ -60,6 +60,7 @@ public class ControllerRegister {
 
         textFields.add(textFieldLogin);
         textFields.add(passwordField1);
+        textFields.add(passwordField2);
         textFields.add(textFieldEmail);
         textFields.add(textFieldBudget);
         textFields.add(textFieldLogin);
@@ -76,17 +77,20 @@ public class ControllerRegister {
             for(int i=0;i<textFields.size();i++){
                 textFields.get(i).getStyleClass().remove("error");
             }
+            errorLabel.setVisible(false);
+
 
             error.clear();
 
             error.add(Errors.emptyLogin(textFieldLogin.getText()));
+            error.add(Errors.emptyPassword(passwordField1.getText()));
             error.add(Errors.samePassword(passwordField1.getText(), passwordField2.getText()));
             error.add(Errors.goodEmail(textFieldEmail.getText()));
             error.add(Errors.goodBudget(textFieldBudget.getText()));
             List<User> logins = session.createQuery("from User ").list();
             if(logins.stream().anyMatch(x -> x.getLogin().equals(textFieldLogin.getText()))){
                 error.add(true);
-                System.out.println("Taki sam login");
+                errorLabel.setVisible(true);
             }
 
             // DODAWANIE DO BAZY
@@ -96,7 +100,7 @@ public class ControllerRegister {
                 Object maxID = session.createSQLQuery("SELECT MAX(ID_USER) FROM USER1").uniqueResult();
                 int id = Integer.valueOf(Objects.toString(maxID));
                 id++;
-                User user = new User(id, textFieldLogin.getText(), passwordField1.getText(), textFieldEmail.getText(), Double.valueOf(textFieldBudget.getText()));
+                User user = new User(id, textFieldLogin.getText(), passwordField1.getText(), textFieldEmail.getText(), Double.valueOf(textFieldBudget.getText()), "NO");
                 session.createSQLQuery("INSERT INTO USER1 VALUES(" + user + ")").executeUpdate();
                 tx.commit();
                 } catch (HibernateException e) {
@@ -109,7 +113,6 @@ public class ControllerRegister {
                 }
             }
             else{
-                errorLabel.setVisible(true);
                 for(int i=0;i<error.size();i++){
                     if(error.get(i)){
                         textFields.get(i).getStyleClass().add("error");

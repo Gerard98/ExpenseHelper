@@ -18,12 +18,12 @@
       <Label layoutX="75.0" layoutY="143.0" text="Password Again:" />
       <Label layoutX="75.0" layoutY="188.0" text="E-Mail:" />
       <Label layoutX="75.0" layoutY="233.0" text="Budget:" />
-      <Label layoutX="100.0" layoutY="10.0" text="Register">
+      <Label layoutX="85.0" layoutY="10.0" text="Registration">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="errorLabel" layoutX="135.0" layoutY="312.0" text="Error" visible="false" />
+      <Label fx:id="errorLabel" layoutX="95.0" layoutY="312.0" text="The nickname is busy" visible="false" />
       <PasswordField fx:id="passwordField1" layoutX="76.0" layoutY="115.0" stylesheets="@../application.css" />
       <PasswordField fx:id="passwordField2" layoutX="76.0" layoutY="160.0" stylesheets="@../application.css" />
    </children>

@@ -10,7 +10,7 @@
 
 <Pane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.balanceController">
    <children>
-      <Text layoutX="195.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance Sheet">
+      <Text layoutX="285.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance Sheet">
          <font>
             <Font size="39.0" />
          </font>

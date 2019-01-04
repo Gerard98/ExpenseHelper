@@ -4,3 +4,5 @@ Program umożliwia kontrolę wydatków, dodawanie ich i usuwanie. Pokazuje on il
 zostało do wydania ( Przy rejestracji wyznaczamy miesięczny budżet ). Użytkownik ma możliwość zobaczenia bilansu rocznego
 ( średnią wydatków, łączną kwotę wydatków, wykres ukazujący na jaką kategorię wydatków wydaliśmy najwięcej i w jakim miesiącu
 wydaliśmy najwięcej pieniędzy )
+
+Program wykorzystuje bazę danych i został utworzony za pomocą JavyFX oraz frameworku Hibernate

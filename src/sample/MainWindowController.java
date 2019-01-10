@@ -33,7 +33,7 @@ public class MainWindowController {
     @FXML
     private Pane pane;
     @FXML
-    private Label monthLabel, spendLabel, keepLabel, userLogin;
+    private Label monthLabel, spendLabel, keepLabel, userLogin, errorBalance;
     @FXML
     private TableView<Expense> tableView;
     @FXML
@@ -49,6 +49,7 @@ public class MainWindowController {
     private final String expenseByMonthQuery = "from Expense where id_user = :id_user and TO_CHAR(expenseDate,'MM') = :date";
     private final SimpleDateFormat onlyDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private final SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+    private final SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
     private List<Expense> expenses;
     private User user;
     private SessionFactory sessionFactory;
@@ -73,8 +74,6 @@ public class MainWindowController {
             if(Errors.goodYear(expenses.get(i).getExpenseDate().toString()))expenses.remove(i);
             else i++;
         }
-
-
 
         // Wyświetlanie wydatków w bieżącym miesiącu
 
@@ -101,6 +100,22 @@ public class MainWindowController {
 
     }
 
+    public void showExpanses(){
+
+        String month = (String) monthChoice.getValue();
+        ObservableList months = monthChoice.getItems();
+        for(int i=0;i<12;i++){
+            if(months.get(i).equals(month)){
+                i++;
+                if(i < 10){
+                    showExpanses("0" + String.valueOf(i));
+                }
+                else showExpanses(String.valueOf(i));
+                break;
+            }
+        }
+
+    }
 
     @FXML
     public void initialize(){
@@ -132,23 +147,6 @@ public class MainWindowController {
         showExpanses(monthFormat.format(new Date()));
 
         session.close();
-
-    }
-
-    public void showExpanses(){
-
-        String month = (String) monthChoice.getValue();
-        ObservableList months = monthChoice.getItems();
-        for(int i=0;i<12;i++){
-            if(months.get(i).equals(month)){
-                i++;
-                if(i < 10){
-                    showExpanses("0" + String.valueOf(i));
-                }
-                else showExpanses(String.valueOf(i));
-                break;
-            }
-        }
 
     }
 
@@ -208,17 +206,28 @@ public class MainWindowController {
 
     @FXML
     public void balance(){
-        try{
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("balance.fxml"));
-            stage.setTitle("Balance Sheet");
-            stage.setScene(new Scene(root, 800, 600));
-            stage.show();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
 
+        Session session = sessionFactory.openSession();
+        errorBalance.setVisible(false);
+
+        List<Expense> expenses = new ArrayList<>();
+        expenses = session.createQuery("from Expense where id_user = " + user.getId_user() + " and TO_CHAR(expenseDate, 'yyyy') = " + yearFormat.format(new Date()).toString()).list();
+
+        if(!expenses.isEmpty()) {
+            try {
+                Stage stage = new Stage();
+                Parent root = FXMLLoader.load(getClass().getResource("balance.fxml"));
+                stage.setTitle("Balance Sheet");
+                stage.setScene(new Scene(root, 800, 600));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else
+            errorBalance.setVisible(true);
+
+        session.close();
     }
 
     @FXML

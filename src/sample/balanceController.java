@@ -49,26 +49,37 @@ public class balanceController {
             tx = session.beginTransaction();
             expenses = session.createQuery("from Expense where id_user = " + user.getId_user() + "and TO_CHAR(expensedate,'yyyy') = " + thisYear).list();
             double sumExp,max,avg,balance,sumMonth;
-            String month;
+            List<Object> month;
             sumExp = Double.valueOf(Objects.toString(session.createSQLQuery("Select SUM(AMOUNT) from Expense where id_user = " + user.getId_user() + "and TO_CHAR(expensedate,'yyyy') = " + thisYear).uniqueResult()));
             max = Double.valueOf(Objects.toString(session.createSQLQuery("Select MAX(AMOUNT) from Expense where id_user = " + user.getId_user() + "and TO_CHAR(expensedate,'yyyy') = " + thisYear).uniqueResult()));
             avg = Double.valueOf(Objects.toString(session.createSQLQuery("Select AVG(AMOUNT) from Expense where id_user = " + user.getId_user() + "and TO_CHAR(expensedate,'yyyy') = " + thisYear).uniqueResult()));
-            session.createSQLQuery("SELECT TO_CHAR(EXPENSEDATE, 'MM') FROM EXPENSE e where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " and (Select Sum(AMOUNT) from expense where TO_CHAR(EXPENSEDATE,'MM') = TO_CHAR(e.expensedate,'MM') and TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+") >=ALL (Select SUM(AMOUNT) from expense where TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+" group by TO_CHAR(Expensedate, 'MM'))").uniqueResult();
-            month = (String) session.createSQLQuery("SELECT TO_CHAR(EXPENSEDATE, 'MM') FROM EXPENSE e where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " and (Select Sum(AMOUNT) from expense where TO_CHAR(EXPENSEDATE,'MM') = TO_CHAR(e.expensedate,'MM') and TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+") >=ALL (Select SUM(AMOUNT) from expense where TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+" group by TO_CHAR(Expensedate, 'MM'))").uniqueResult();
-            sumMonth = Double.valueOf(Objects.toString(session.createSQLQuery("Select SUM(AMOUNT) FROM EXPENSE WHERE ID_USER = " + user.getId_user() + "and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " and TO_CHAR(EXPENSEDATE,'MM') = " + Integer.valueOf(month)).uniqueResult()));
+            //session.createSQLQuery("SELECT TO_CHAR(EXPENSEDATE, 'MM') FROM EXPENSE e where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " and (Select Sum(AMOUNT) from expense where TO_CHAR(EXPENSEDATE,'MM') = TO_CHAR(e.expensedate,'MM') and TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+") >=ALL (Select SUM(AMOUNT) from expense where TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+" group by TO_CHAR(Expensedate, 'MM'))").uniqueResult();
+
+            //SELECT TO_CHAR(EXPENSEDATE, 'MM') FROM EXPENSE e where ID_USER = 6 and TO_CHAR(EXPENSEDATE,'YYYY') = 2018 group by TO_CHAR(EXPENSEDATE, 'MM') having SUM(AMOUNT) >=ALL (Select SUM(AMOUNT) from expense where TO_CHAR(ExpenseDATE,'yyyy') = 2019 and id_user = 6 group by TO_CHAR(Expensedate, 'MM'))
+
+            // zwraca miesiąc w którym wydatki były najwyższe
+            month = session.createSQLQuery("SELECT TO_CHAR(EXPENSEDATE, 'MM') FROM EXPENSE e where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " group by TO_CHAR(EXPENSEDATE, 'MM') having SUM(AMOUNT) >=ALL (SELECT SUM(AMOUNT) from expense where TO_CHAR(Expensedate,'yyyy') = " + thisYear + " and id_user = " + user.getId_user() + " group by TO_CHAR(Expensedate,'MM'))").list();
+
+            //month = (String) session.createSQLQuery("SELECT TO_CHAR(EXPENSEDATE, 'MM') FROM EXPENSE e where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " and (Select Sum(AMOUNT) from expense where TO_CHAR(EXPENSEDATE,'MM') = TO_CHAR(e.expensedate,'MM') and TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+") >=ALL (Select SUM(AMOUNT) from expense where TO_CHAR(ExpenseDATE,'yyyy') = "+thisYear+" and id_user = "+user.getId_user()+" group by TO_CHAR(Expensedate, 'MM'))").uniqueResult();
+
             balance = user.getBudget()*12 - sumExp;
             sum.setText("In this year you spend " + sumExp + " so, your balance is: " + balance);
             biggestExp.setText("The biggest cost of expense is: " + max);
             avgExp.setText("Average cost of expeses is: " + avg);
 
-            monthExp.setText("Your expenses were the biggest in " + Month.of(Integer.valueOf(month)) + " ( " + sumMonth + " )");
-            tx.commit();
+            monthExp.setText("Your expenses were the biggest in ");
+            for(Object o : month){
+                sumMonth = Double.valueOf(Objects.toString(session.createSQLQuery("Select SUM(AMOUNT) FROM EXPENSE WHERE ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE,'YYYY') = " + thisYear + " and TO_CHAR(EXPENSEDATE,'MM') = " + Integer.valueOf(Objects.toString(o))).uniqueResult()));
+                monthExp.setText(monthExp.getText() + Month.of(Integer.valueOf(Objects.toString(o))) + " ( " + sumMonth + " ) ");
+            }
+
+
 
             ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
 
             List<Category> categories = session.createQuery("FROM Category ").list();
             for(Category cat : categories){
-                String amount =  session.createSQLQuery("SELECT SUM(AMOUNT) from EXPENSE where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE, 'yyyy') = " + thisYear + " and CATEGORY = '" + cat.getCategory() + "'").uniqueResult().toString();
+                String amount = session.createSQLQuery("SELECT NVL(SUM(AMOUNT),0) from EXPENSE where ID_USER = " + user.getId_user() + " and TO_CHAR(EXPENSEDATE, 'yyyy') = " + thisYear + " and CATEGORY = '" + cat.getCategory() + "'").uniqueResult().toString();
                 data.add(new PieChart.Data(cat.getCategory(), Double.valueOf(amount)));
             }
             pieChartByCategory.setData(data);
@@ -84,7 +95,7 @@ public class balanceController {
             }
             barChartByMonth.getData().addAll(dataMonth);
 
-
+            tx.commit();
         }
         catch (HibernateException ex){
             if(tx != null) tx.rollback();

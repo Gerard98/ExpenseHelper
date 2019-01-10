@@ -66,7 +66,7 @@ public class Controller {
 
         user =(User) session.createQuery("from User where login = '" + login.getText() + "' and password = '" + password.getText() + "'").uniqueResult();
 
-        if(user != null) {
+        if(user != null && user.getAdmin().equals("NO")) {
             try {
 
                 Stage stage = new Stage();
@@ -85,8 +85,11 @@ public class Controller {
                 ((Stage) login.getScene().getWindow()).close();
             }
         }
-        else{
+        else if(user != null && user.getAdmin().equals("YES")){
 
+            System.out.println("Wykryto admina ");
+        }
+        else{
             errorLabel.setVisible(true);
         }
 

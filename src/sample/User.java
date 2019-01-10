@@ -22,7 +22,7 @@ public class User {
 
     @Override
     public String toString() {
-        return id_user + ",'" + login + "','" + password + "','" + e_mail + "'," + budget;
+        return id_user + ",'" + login + "','" + password + "','" + e_mail + "'," + budget + ",'" + admin + "'";
     }
 
     public int getId_user() {

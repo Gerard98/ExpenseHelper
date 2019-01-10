@@ -191,7 +191,7 @@ public class MainWindowController {
         }
         finally {
             session.close();
-            refresh();
+            showExpanses();
         }
     }
 

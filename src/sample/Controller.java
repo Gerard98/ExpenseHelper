@@ -86,8 +86,22 @@ public class Controller {
             }
         }
         else if(user != null && user.getAdmin().equals("YES")){
+            try {
+                Stage stage = new Stage();
+                Parent root = FXMLLoader.load(getClass().getResource("adminMenu.fxml"));
+                stage.setTitle("Hello");
+                stage.setScene(new Scene(root, 600, 500));
+                stage.show();
+                stage.setOnCloseRequest(event -> {
+                    endSessionFactory();
+                });
 
-            System.out.println("Wykryto admina ");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                session.close();
+                ((Stage) login.getScene().getWindow()).close();
+            }
         }
         else{
             errorLabel.setVisible(true);
